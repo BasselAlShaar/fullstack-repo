@@ -18,11 +18,11 @@ jobs:
         run: git submodule update --remote
 
       - name: Commit and Push Changes
+        env:
+          PAT: ${{ secrets.PAT }}
         run: |
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
           git add .
           git commit -m "Update submodules"
-          git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git push https://$PAT@github.com/BasselAlShaar/fullstack-repo.git
