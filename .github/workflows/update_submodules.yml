@@ -24,5 +24,6 @@ jobs:
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
           git add .
-          git commit -m "Update submodules"
-          git push https://x-access-token:${{ secrets.PAT }}@github.com/BasselAlShaar/fullstack-repo.git HEAD:main
+          git commit -m "Updated submodules"
+          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/BasselAlShaar/fullstack-repo.git
+          git push origin HEAD:main
