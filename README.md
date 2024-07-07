@@ -1,6 +1,7 @@
 Step 1:
   Created fullstack-repo repository
   Changed setting of repo to include PAT for authentication
+  Added github workflow action(.github/workflows/update_submodules)
   Added github workflow action(.github/workflows/update_from_submodules.yml)(The workflow is set to trigger on a repository_dispatch event which is a custom event i used to notify the fullstack-repo that an update has occurred in one of its submodules)
 Step 2:
   Created frontend-repo repository
