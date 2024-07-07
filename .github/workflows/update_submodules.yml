@@ -25,4 +25,4 @@ jobs:
           git config --global user.name "Your Name"
           git add .
           git commit -m "Update submodules"
-          git push https://x-access-token:${{ secrets.PAT }}@github.com/BasselAlShaar/fullstack-repo.git
+          git push https://x-access-token:${{ secrets.PAT }}@github.com/BasselAlShaar/fullstack-repo.git HEAD:main
