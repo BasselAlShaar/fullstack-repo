@@ -1,0 +1,29 @@
+name: Update from Submodules
+
+on:
+  repository_dispatch:
+    types: [update_submodules]
+
+jobs:
+  update-submodules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0  # Ensure the entire history is fetched
+
+      - name: Update Submodules
+        run: git submodule update --remote --merge
+
+      - name: Commit and Push Changes
+        env:
+          PAT: ${{ secrets.PAT }}
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git add .
+          git commit -m "Update submodules"
+          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/BasselAlShaar/fullstack-repo.git
+          git push origin HEAD:main
